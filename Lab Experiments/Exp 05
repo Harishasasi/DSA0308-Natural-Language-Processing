@@ -1,0 +1,17 @@
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
+
+words = [
+    "playing", "played", "plays",
+    "studies", "studying", "happiness",
+    "running", "connected", "connection",
+    "computational"
+]
+
+print("WORD STEMMING USING PORTER STEMMER")
+print("{:<20} {}".format("Original Word", "Stemmed Word"))
+
+for word in words:
+    stem = ps.stem(word)
+    print("{:<20} {}".format(word, stem))
