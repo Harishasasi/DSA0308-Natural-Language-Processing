@@ -1,0 +1,15 @@
+text = "The students are playing and learning lessons"
+
+words = text.split()
+
+suffixes = ["ing", "ed", "s"]
+
+for word in words:
+    root = word.lower()
+
+    for suffix in suffixes:
+        if root.endswith(suffix) and len(root) > len(suffix) + 2:
+            root = root[:-len(suffix)]
+            break
+
+    print(word, "->", root)
