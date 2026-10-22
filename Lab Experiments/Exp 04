@@ -1,0 +1,27 @@
+def plural_fsm(noun):
+    noun_lower = noun.lower()
+
+    if noun_lower.endswith(("s", "x", "z", "ch", "sh")):
+        plural = noun + "es"
+
+    elif noun_lower.endswith("y") and len(noun) > 1 \
+            and noun_lower[-2] not in "aeiou":
+        plural = noun[:-1] + "ies"
+
+    elif noun_lower.endswith("y"):
+        plural = noun + "s"
+
+    else:
+        plural = noun + "s"
+
+    return plural
+
+print("FINITE-STATE MORPHOLOGICAL PARSER")
+print("---------------------------------")
+
+words = ["cat", "bus", "box", "baby", "boy",
+         "dish", "class", "book"]
+
+for word in words:
+    print("Singular: {:<10} Plural: {}".format(
+        word, plural_fsm(word)))
