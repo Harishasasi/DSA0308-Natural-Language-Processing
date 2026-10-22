@@ -1,0 +1,26 @@
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+
+nltk.download('wordnet', quiet=True)
+nltk.download('omw-1.4', quiet=True)
+
+stemmer = PorterStemmer()
+lemmatizer = WordNetLemmatizer()
+
+words = ["playing", "played", "plays",
+         "studies", "studying", "cats",
+         "running", "better"]
+
+print("MORPHOLOGICAL ANALYSIS USING NLTK")
+print("-" * 55)
+print("{:<15} {:<15} {:<15}".format(
+    "Word", "Stem", "Lemma"))
+print("-" * 55)
+
+for word in words:
+    stem = stemmer.stem(word)
+    lemma = lemmatizer.lemmatize(word, pos='v')
+
+    print("{:<15} {:<15} {:<15}".format(
+        word, stem, lemma))
