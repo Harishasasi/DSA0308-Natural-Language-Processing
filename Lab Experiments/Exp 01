@@ -1,0 +1,21 @@
+import re
+
+text = "Python programming is easy. Python is powerful."
+
+# Match pattern at the beginning of the string
+result1 = re.match("Python", text)
+if result1:
+    print("Match found:", result1.group())
+else:
+    print("No match found")
+
+# Search for a pattern anywhere in the string
+result2 = re.search("easy", text)
+if result2:
+    print("Search found:", result2.group())
+else:
+    print("No search found")
+
+# Find all occurrences of a pattern
+result3 = re.findall("Python", text)
+print("All occurrences:", result3)
