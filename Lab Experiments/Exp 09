@@ -1,0 +1,20 @@
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk import RegexpTagger
+
+text = "The boy is playing happily"
+
+patterns = [
+    (r'.*ing$', 'VBG'),
+    (r'.*ly$', 'RB'),
+    (r'The', 'DT'),
+    (r'boy', 'NN'),
+    (r'is', 'VBZ'),
+    (r'.*', 'NN')
+]
+
+tagger = RegexpTagger(patterns)
+
+words = word_tokenize(text)
+print(tagger.tag(words))
