@@ -1,0 +1,24 @@
+
+def dialog_act(sentence):
+    sentence = sentence.lower()
+
+    if any(word in sentence for word in ["hello", "hi", "good morning"]):
+        return "Greeting"
+    elif sentence.endswith("?"):
+        return "Question"
+    elif any(word in sentence for word in ["please", "kindly"]):
+        return "Request"
+    elif any(word in sentence for word in ["thank you", "thanks"]):
+        return "Thanking"
+    else:
+        return "Statement"
+
+dialog = [
+    "Hello",
+    "How are you?",
+    "Please help me",
+    "Thank you"
+]
+
+for sentence in dialog:
+    print(sentence, ":", dialog_act(sentence))
