@@ -1,0 +1,28 @@
+
+import re
+
+def parse(expression):
+    pattern = r'FORALL|EXISTS|[A-Za-z_]\w*|->|[(),]'
+    tokens = re.findall(pattern, expression)
+
+    if not tokens:
+        return False
+
+    brackets = 0
+    for token in tokens:
+        if token == '(':
+            brackets += 1
+        elif token == ')':
+            brackets -= 1
+
+        if brackets < 0:
+            return False
+
+    return brackets == 0 and tokens[-1] == ')'
+
+expression = "FORALL x (Human(x) -> Mortal(x))"
+
+if parse(expression):
+    print("Valid FOPC Expression")
+else:
+    print("Invalid FOPC Expression")
