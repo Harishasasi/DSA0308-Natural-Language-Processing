@@ -1,0 +1,18 @@
+
+import re
+
+text = "Ravi is a student. He studies Python."
+
+sentences = text.split(".")
+previous_noun = ""
+
+for sentence in sentences:
+    words = sentence.split()
+
+    for word in words:
+        if word.lower() in ["he", "she", "it", "they"]:
+            print(word, "refers to", previous_noun)
+
+        elif word[0].isupper() and word.lower() not in ["he", "she", "it", "they"]:
+            previous_noun = word
+
