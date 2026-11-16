@@ -1,0 +1,21 @@
+
+import nltk
+
+text = "The boy playing football"
+
+words = nltk.word_tokenize(text)
+
+# Initial tagging
+tagged = [(word, 'NN') for word in words]
+
+# Transformation rule
+for i in range(len(tagged)):
+    word, tag = tagged[i]
+
+    if word.lower() == "the":
+        tagged[i] = (word, "DT")
+    elif word.endswith("ing"):
+        tagged[i] = (word, "VBG")
+
+print("Final POS Tags:")
+print(tagged)
