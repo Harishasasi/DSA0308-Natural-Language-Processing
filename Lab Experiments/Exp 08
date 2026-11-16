@@ -1,0 +1,17 @@
+
+import random
+
+text = "The boy plays football"
+
+tag_dict = {
+    "The": ["DT"],
+    "boy": ["NN"],
+    "plays": ["VBZ", "NNS"],
+    "football": ["NN"]
+}
+
+words = text.split()
+
+for word in words:
+    tag = random.choice(tag_dict.get(word, ["NN"]))
+    print(word, ":", tag)
