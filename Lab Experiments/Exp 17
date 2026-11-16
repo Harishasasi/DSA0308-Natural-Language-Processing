@@ -1,0 +1,14 @@
+
+import nltk
+from nltk.corpus import wordnet
+
+nltk.download('wordnet')
+
+word = "car"
+
+synsets = wordnet.synsets(word)
+
+for syn in synsets:
+    print("Meaning:", syn.definition())
+    print("Synonyms:", [lemma.name() for lemma in syn.lemmas()])
+    print()
