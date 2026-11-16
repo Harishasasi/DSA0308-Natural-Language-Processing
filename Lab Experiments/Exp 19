@@ -1,0 +1,16 @@
+
+import nltk
+from nltk.wsd import lesk
+
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+sentence = "I went to the bank to deposit money"
+
+word = "bank"
+
+result = lesk(sentence.split(), word)
+
+print("Word:", word)
+print("Meaning:", result.definition())
+print("Synset:", result)
