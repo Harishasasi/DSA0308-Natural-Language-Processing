@@ -1,0 +1,19 @@
+
+import nltk
+
+grammar = nltk.PCFG.fromstring("""
+S -> NP VP [1.0]
+NP -> Det N [0.8] | N [0.2]
+VP -> V NP [0.7] | V [0.3]
+Det -> 'the' [1.0]
+N -> 'boy' [0.5] | 'apple' [0.5]
+V -> 'eats' [1.0]
+""")
+
+parser = nltk.ViterbiParser(grammar)
+
+sentence = "the boy eats the apple".split()
+
+for tree in parser.parse(sentence):
+    print(tree)
+    print("Probability:", tree.prob())
